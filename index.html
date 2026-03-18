@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Temple Festival Invitation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        :root { --gold: #FFD700; --dark: #050505; }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body, html {
+            margin: 0; padding: 0; height: 100%; width: 100%;
+            background: var(--dark); color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Dual-Layer GPU Accelerated Backgrounds */
+        .bg-layer {
+            position: fixed; top: -10%; left: -10%; width: 120%; height: 120%;
+            background-size: cover; background-position: center;
+            filter: blur(40px) brightness(0.25);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity; /* Forces GPU rendering */
+            z-index: 0; pointer-events: none;
+        }
+        
+        #bg-1 { opacity: 1; }
+        #bg-2 { opacity: 0; }
+
+        .swiper { width: 100%; height: 100%; z-index: 10; }
+
+        /* Strict Single Slide Enforcement */
+        .swiper-slide {
+            width: 100% !important; height: 100% !important;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .swiper-zoom-container { width: 100%; height: 100%; }
+
+        .swiper-slide img {
+            max-width: 90%; max-height: 72vh;
+            object-fit: contain; border-radius: 12px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.9);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* Premium Glassmorphism UI */
+        .glass-nav {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            padding: 25px 20px 35px; z-index: 20;
+            background: rgba(10, 10, 10, 0.45);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 215, 0, 0.15);
+            text-align: center;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+        }
+
+        .top-progress {
+            position: fixed; top: 0; left: 0; width: 100%;
+            height: 4px; z-index: 20; background: rgba(255,255,255,0.05);
+        }
+        
+        .progress-bar {
+            height: 100%; width: 0%; background: var(--gold);
+            transition: width 0.4s ease-out;
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        .label-pill {
+            display: inline-block; padding: 6px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 30px; color: var(--gold);
+            font-size: 0.85rem; font-weight: 500;
+            letter-spacing: 0.5px; margin-bottom: 20px;
+        }
+
+        .btn-album {
+            display: flex; align-items: center; justify-content: center;
+            width: 100%; max-width: 320px; margin: 0 auto;
+            height: 54px; background: linear-gradient(135deg, #FFD700, #FDB931);
+            color: #000; border-radius: 16px;
+            text-decoration: none; font-weight: 700;
+            font-size: 1rem; letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(255,215,0,0.25);
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-album:active { transform: scale(0.95); }
+
+        /* Subtle pulse animation for the button */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+        .btn-album { animation: pulse 2.5s infinite; }
+    </style>
+</head>
+<body>
+
+    <div id="bg-1" class="bg-layer"></div>
+    <div id="bg-2" class="bg-layer"></div>
+
+    <div class="top-progress">
+        <div id="progress" class="progress-bar"></div>
+    </div>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" data-name="அழைப்பிதழ்" data-src="https://i.postimg.cc/nhrvC25y/IMG-20260318-232259-1.jpg">
+                <div class="swiper-zoom-container"><img src="https://i.postimg.cc/nhrvC25y/IMG-20260318-232259-1.jpg" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-name="விவரங்கள்" data-src="https://i.postimg.cc/BtWdXtQv/IMG-20260318-232318-1.jpg">
+                <div class="swiper-zoom-container"><img src="https://i.postimg.cc/BtWdXtQv/IMG-20260318-232318-1.jpg" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-name="நிகழ்ச்சி நிரல் 1" data-src="https://i.postimg.cc/dVfGddcn/IMG-20260318-233209.jpg">
+                <div class="swiper-zoom-container"><img src="https://i.postimg.cc/dVfGddcn/IMG-20260318-233209.jpg" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-name="நிகழ்ச்சி நிரல் 2" data-src="https://i.postimg.cc/y8G099CL/IMG-20260318-233227.jpg">
+                <div class="swiper-zoom-container"><img src="https://i.postimg.cc/y8G099CL/IMG-20260318-233227.jpg" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-name="நிகழ்ச்சி நிரல் 3"https://i.postimg.cc/bv2kRJqx/IMG-20260318-232404-1.jpg">
+                <div class="swiper-zoom-container"><img src="https://i.postimg.cc/bv2kRJqx/IMG-20260318-232404-1.jpg" loading="lazy"></div>
+            </div>
+            <div class="swiper-slide" data-name="உற்சவம்" data-src="https://i.postimg.cc/Pq8YMxdV/IMG-20260318-232428-1-2.jpg">
+                <div class="swiper-zoom-container"><img src="https://i.postimg.cc/Pq8YMxdV/IMG-20260318-232428-1-2.jpg" loading="lazy"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-nav">
+        <div id="current-label" class="label-pill">அழைப்பிதழ்</div>
+        <a href="https://photos.app.goo.gl/BYiqRcsYsHgvneua8" class="btn-album" target="_blank">
+            View Full Photo Album
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        let activeBg = 1;
+
+        const swiper = new Swiper(".mySwiper", {
+            zoom: { maxRatio: 3, minRatio: 1 },
+            slidesPerView: 1,      // Strictly forces 1 slide per view
+            spaceBetween: 30,      // Adds space between slides so they never touch
+            speed: 400,
+            resistanceRatio: 0.85, // Adds a nice elastic feel at the edges
+            on: {
+                init: function() { syncUI(this, true); },
+                slideChange: function() { syncUI(this, false); }
+            }
+        });
+
+        function syncUI(s, isInit) {
+            const activeSlide = s.slides[s.activeIndex];
+            const name = activeSlide.getAttribute('data-name');
+            const imgUrl = activeSlide.getAttribute('data-src');
+            
+            // 1. Update Text & Progress Bar
+            document.getElementById('current-label').innerText = name;
+            const progress = ((s.activeIndex + 1) / s.slides.length) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+
+            // 2. High-Performance Dual Background Crossfade
+            const bg1 = document.getElementById('bg-1');
+            const bg2 = document.getElementById('bg-2');
+
+            if (isInit) {
+                bg1.style.backgroundImage = `url('${imgUrl}')`;
+            } else {
+                if (activeBg === 1) {
+                    bg2.style.backgroundImage = `url('${imgUrl}')`;
+                    bg2.style.opacity = 1;
+                    bg1.style.opacity = 0;
+                    activeBg = 2;
+                } else {
+                    bg1.style.backgroundImage = `url('${imgUrl}')`;
+                    bg1.style.opacity = 1;
+                    bg2.style.opacity = 0;
+                    activeBg = 1;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
