@@ -1,39 +1,193 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Temple Festival Invitation</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sriram — Creative Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        :root { --gold: #FFD700; --dark: #050505; }
-
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-
-        body, html {
-            margin: 0; padding: 0; height: 100%; width: 100%;
-            background: var(--dark); color: white;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            overflow: hidden;
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #08080c;
+            color: #f3f4f6;
         }
 
-        /* Dual-Layer GPU Accelerated Backgrounds */
-        .bg-layer {
-            position: fixed; top: -10%; left: -10%; width: 120%; height: 120%;
-            background-size: cover; background-position: center;
-            filter: blur(40px) brightness(0.25);
-            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity; /* Forces GPU rendering */
-            z-index: 0; pointer-events: none;
+        /* Glassmorphism Cards & Buttons */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        #bg-1 { opacity: 1; }
-        #bg-2 { opacity: 0; }
 
-        .swiper { width: 100%; height: 100%; z-index: 10; }
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+        }
 
-        /* Strict Single Slide Enforcement */
-        .swiper-slide {
+        /* Highlight Feature Button (Big Gallery CTA) */
+        .btn-gallery-hero {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.3) 0%, rgba(147, 51, 234, 0.3) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            box-shadow: 0 0 30px rgba(126, 34, 206, 0.25);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-gallery-hero:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.5) 0%, rgba(147, 51, 234, 0.5) 100%);
+            box-shadow: 0 0 45px rgba(168, 85, 247, 0.4);
+            border-color: rgba(216, 180, 254, 0.6);
+        }
+
+        /* Photo Frame Glow */
+        .photo-frame {
+            position: relative;
+        }
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(45deg, #6366f1, #a855f7, #ec4899);
+            border-radius: 2rem;
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <nav class="w-full max-w-6xl mx-auto px-6 py-8 flex justify-between items-center z-20">
+        <a href="#" class="text-2xl font-black tracking-wider text-white flex items-center gap-2">
+            SRIRAM<span class="text-indigo-500">.</span>
+        </a>
+        <div class="flex items-center gap-6">
+            <a href="#about" class="text-sm font-semibold text-white/70 hover:text-white transition-colors">About</a>
+            <a href="#skills" class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Skills</a>
+            <a href="#contact" class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <main class="w-full max-w-6xl mx-auto px-6 py-12 md:py-20 my-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            <!-- LEFT COLUMN: Intro & Big Button -->
+            <div class="lg:col-span-7 space-y-8 text-left">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-xs font-bold text-indigo-400 tracking-wider uppercase">
+                    <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span> Available for Creative Projects
+                </div>
+
+                <h1 class="text-5xl sm:text-6xl md:text-7xl font-black text-white tracking-tight leading-[1.1]">
+                    Electronics & <br>
+                    <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Visual Creator.
+                    </span>
+                </h1>
+
+                <p class="text-white/70 text-base sm:text-lg max-w-xl font-light leading-relaxed">
+                    Passionate undergraduate student specializing in Electronics & Communication, photography, color grading, and modern web experiences.
+                </p>
+
+                <!-- BIG FEATURED BUTTON (LINKS TO YOUR GALLERY) -->
+                <div class="pt-2">
+                    <!-- PASTE YOUR NETLIFY OR GALLERY LINK IN THE 'href' BELOW -->
+                    <a href="https://sriramalbums.netlify.app" target="_blank" class="btn-gallery-hero inline-flex items-center justify-between gap-6 px-8 py-6 rounded-3xl w-full sm:w-auto">
+                        <div class="flex items-center gap-4 text-left">
+                            <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/20">
+                                <i class="fa-solid fa-images text-2xl text-purple-300"></i>
+                            </div>
+                            <div>
+                                <span class="block text-white text-xl font-bold tracking-tight">Explore Photo Gallery</span>
+                                <span class="block text-purple-200/60 text-xs font-medium">Interactive full-screen experience & private collections</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-white/80 text-xl pl-4"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: User Photo Placeholder Frame -->
+            <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                <div class="photo-frame w-full max-w-md aspect-[4/5] rounded-[2rem] overflow-hidden glass-card p-3">
+                    <div class="w-full h-full rounded-[1.5rem] overflow-hidden bg-white/5 relative group flex items-center justify-center">
+                        
+                        <!-- ============================================================ -->
+                        <!-- 📸 PASTE YOUR PHOTO IMAGE URL HERE IN THE 'src' ATTRIBUTE    -->
+                        <!-- ============================================================ -->
+                        <img 
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" 
+                            alt="Sriram Profile Photo" 
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        />
+
+                        <!-- Overlay gradient for subtle depth -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+                        
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="text-xs font-bold text-indigo-300 uppercase tracking-widest block mb-1">Karur, India</span>
+                            <h3 class="text-white font-bold text-xl">Sriram</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="w-full max-w-6xl mx-auto px-6 py-16">
+        <h2 class="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">Core Competencies</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            
+            <div class="glass-card p-6 rounded-2xl space-y-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+                    <i class="fa-solid fa-camera text-lg"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white">Photography & Restoration</h3>
+                <p class="text-sm text-white/60">Capturing nature, temple heritage, and portrait photography with advanced color correction.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl space-y-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400">
+                    <i class="fa-solid fa-code text-lg"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white">Front-End Development</h3>
+                <p class="text-sm text-white/60">Crafting high-performance, fluid touch web experiences using HTML, Tailwind CSS, and JavaScript.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl space-y-3">
+                <div class="w-10 h-10 rounded-xl bg-pink-500/20 flex items-center justify-center text-pink-400">
+                    <i class="fa-solid fa-microchip text-lg"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white">Electronics & Communication</h3>
+                <p class="text-sm text-white/60">Undergraduate ECE studies focused on hardware systems, signal processing, and technology.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer id="contact" class="w-full border-t border-white/10 py-8 mt-12 bg-black/40">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p class="text-xs text-white/50">© 2026 Sriram. All rights reserved.</p>
+            <div class="flex items-center gap-4 text-white/70">
+                <a href="https://sriramalbums.netlify.app" target="_blank" class="text-sm hover:text-white transition-colors">
+                    <i class="fa-solid fa-images mr-1"></i> Gallery
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
             width: 100% !important; height: 100% !important;
             display: flex; align-items: center; justify-content: center;
         }
